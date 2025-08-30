@@ -1,48 +1,27 @@
 import React from 'react';
 
-function RecipeCard({ recipe }) {
-  // Extract ingredients and measures
-  const getIngredients = () => {
-    let ingredients = [];
-    for (let i = 1; i <= 20; i++) {
-      const ingredient = recipe[`strIngredient${i}`];
-      const measure = recipe[`strMeasure${i}`];
-      if (ingredient && ingredient.trim()) {
-        ingredients.push(`${measure} ${ingredient}`);
-      }
-    }
-    return ingredients;
-  };
-
-  const ingredients = getIngredients();
-
+function RecipeCard({ recipe, onClick }) {
   return (
-    <div style={{
-      border: '1px solid #ccc',
-      borderRadius: '8px',
-      overflow: 'hidden',
-      textAlign: 'left',
-      padding: '15px',
-      boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
-      backgroundColor: '#fff'
-    }}>
+    <div
+      className="bg-gray-800 rounded-md shadow-md hover:shadow-lg transition cursor-pointer w-full max-w-xs mx-auto"
+      onClick={() => onClick(recipe)}
+    >
       <img
         src={recipe.strMealThumb}
         alt={recipe.strMeal}
-        style={{ width: '100%', borderRadius: '8px' }}
+        className="w-32 h-32 sm:w-40 sm:h-40 object-cover mx-auto mt-4 rounded"
       />
-      <h2>{recipe.strMeal}</h2>
-      <h4>Ingredients:</h4>
-      <ul>
-        {ingredients.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-      <h4>Instructions:</h4>
-      <p style={{ whiteSpace: 'pre-wrap' }}>{recipe.strInstructions}</p>
+      <div className="p-3 text-center">
+        <h2 className="text-base font-semibold mb-1 text-white">{recipe.strMeal}</h2>
+        <p className="text-gray-300 text-xs mb-1">
+          <strong>Category:</strong> {recipe.strCategory}
+        </p>
+        <p className="text-gray-300 text-xs">
+          <strong>Cuisine:</strong> {recipe.strArea}
+        </p>
+      </div>
     </div>
   );
 }
 
 export default RecipeCard;
-
