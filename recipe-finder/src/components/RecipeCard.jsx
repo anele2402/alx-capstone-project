@@ -3,7 +3,7 @@ import React from 'react';
 function RecipeCard({ recipe, onClick }) {
   return (
     <div
-      className="bg-gray-800 rounded-md shadow-md hover:shadow-lg transition cursor-pointer w-full max-w-xs mx-auto"
+      className="bg-red-800 rounded-md shadow-md hover:shadow-lg transition cursor-pointer w-full max-w-xs mx-auto"
       onClick={() => onClick(recipe)}
     >
       <img
@@ -13,10 +13,10 @@ function RecipeCard({ recipe, onClick }) {
       />
       <div className="p-3 text-center">
         <h2 className="text-base font-semibold mb-1 text-white">{recipe.strMeal}</h2>
-        <p className="text-gray-300 text-xs mb-1">
+        <p className="text-red-300 text-xs mb-1">
           <strong>Category:</strong> {recipe.strCategory}
         </p>
-        <p className="text-gray-300 text-xs">
+        <p className="text-red-300 text-xs">
           <strong>Cuisine:</strong> {recipe.strArea}
         </p>
       </div>

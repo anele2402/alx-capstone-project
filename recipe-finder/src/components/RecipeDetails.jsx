@@ -18,7 +18,7 @@ function RecipeDetails({ recipe, onClose }) {
   const ingredients = getIngredients();
 
   return (
-    <div className="fixed inset-0 z-50 bg-black bg-opacity-70 flex justify-center items-center overflow-auto p-4">
+    <div className="fixed inset-0 z-50 bg-red bg-opacity-70 flex justify-center items-center overflow-auto p-4">
       <div className="bg-gray-900 rounded-lg shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative text-white">
         
         <button
@@ -45,7 +45,7 @@ function RecipeDetails({ recipe, onClose }) {
         />
 
         <h3 className="text-xl font-semibold mb-2 text-white">Recipe Ingredients</h3>
-        <ul className="list-disc pl-6 mb-6 text-gray-200">
+        <ul className="list-disc pl-6 mb-6 text-red-200">
           {ingredients.map((item, index) => (
             <li key={index}>{item}</li>
           ))}
@@ -73,7 +73,7 @@ function RecipeDetails({ recipe, onClose }) {
             href={recipe.strSource}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 underline"
+            className="text-red-400 underline"
           >
             Open Source
           </a>
